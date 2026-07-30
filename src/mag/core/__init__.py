@@ -1,3 +1,5 @@
-from .canvas import Canvas
+"""Application configuration primitives."""
 
-__all__ = ["Canvas"]
+from .settings import Settings
+
+__all__ = ["Settings"]

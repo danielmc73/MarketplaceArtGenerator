@@ -1,21 +1,23 @@
 # Marketplace Art Generator
 
-Gerador profissional de artes para marketplaces como:
+Gerador de artes para marketplaces. A Entrega 1B fornece uma base gráfica testada: canvas RGBA de 1200 × 1200 px, elementos ordenados por camada e exportação para PNG, JPG ou WebP.
 
-- Mercado Livre
-- Shopee
-- Amazon
-- Magalu
+## Executar
 
-## Tecnologias
+No Windows, dentro da pasta do projeto:
 
-- Python 3.14
-- Pillow
-- OpenCV
-- NumPy
-- Rich
-- Typer
+```cmd
+.venv\Scripts\activate
+python -m pip install -e .
+python main.py
+python -m unittest discover -s tests -v
+```
 
-## Status
+O comando principal cria `output/entrega_1b_demo.png`.
 
-Versão 0.1.0
+## Estrutura da entrega
+
+- `src/mag/core`: configurações do canvas.
+- `src/mag/graphics`: canvas e renderizador.
+- `src/mag/elements`: retângulos, texto e imagens.
+- `tests`: validação da renderização e exportação.
