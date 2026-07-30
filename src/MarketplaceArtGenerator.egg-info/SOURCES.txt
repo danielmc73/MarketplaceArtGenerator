@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/__init__.py
+src/mag.py
+src/MarketplaceArtGenerator.egg-info/PKG-INFO
+src/MarketplaceArtGenerator.egg-info/SOURCES.txt
+src/MarketplaceArtGenerator.egg-info/dependency_links.txt
+src/MarketplaceArtGenerator.egg-info/requires.txt
+src/MarketplaceArtGenerator.egg-info/top_level.txt

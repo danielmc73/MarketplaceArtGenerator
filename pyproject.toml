@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "MarketplaceArtGenerator"
+version = "0.1.0"
+description = "Professional Marketplace Image Generator"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Daniel Carmo" }
+]
+
+dependencies = [
+    "pillow>=11.0.0",
+    "opencv-python",
+    "numpy",
+    "rich",
+    "typer",
+    "pydantic",
+    "matplotlib",
+    "tqdm",
+    "rembg",
+    "onnxruntime"
+]
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"

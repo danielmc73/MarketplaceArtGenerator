@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+
+# VS Code
+.vscode/
+
+# Build
+build/
+dist/
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+
+# Images generated
+output/*.png
+output/*.jpg
+output/*.webp
+
+# OS
+Thumbs.db
+.DS_Store

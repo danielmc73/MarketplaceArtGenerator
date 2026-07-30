@@ -1,0 +1,10 @@
+pillow>=11.0.0
+opencv-python
+numpy
+rich
+typer
+pydantic
+matplotlib
+tqdm
+rembg
+onnxruntime
