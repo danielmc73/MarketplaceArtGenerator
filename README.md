@@ -13,11 +13,12 @@ python main.py
 python -m unittest discover -s tests -v
 ```
 
-O comando principal cria `output/entrega_1b_demo.png`.
+O comando principal cria `output/entrega_1c_componentes.png`.
 
 ## Estrutura da entrega
 
 - `src/mag/core`: configurações do canvas.
 - `src/mag/graphics`: canvas e renderizador.
 - `src/mag/elements`: retângulos, texto e imagens.
+- `src/mag/components`: badge, cards de beneficio e produto em destaque.
 - `tests`: validação da renderização e exportação.

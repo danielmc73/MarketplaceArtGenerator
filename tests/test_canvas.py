@@ -12,6 +12,7 @@ from PIL import Image
 
 from mag.elements import Rectangle
 from mag.graphics import Canvas
+from mag.components import Badge, BenefitCard
 
 
 class CanvasTests(unittest.TestCase):
@@ -24,3 +25,11 @@ class CanvasTests(unittest.TestCase):
             with Image.open(output) as rendered:
                 self.assertEqual(rendered.size, (1200, 1200))
                 self.assertEqual(rendered.getpixel((5, 5))[:3], (255, 225, 0))
+
+    def test_components_render_on_canvas(self) -> None:
+        canvas = Canvas()
+        Badge("TEST", 20, 20).add_to(canvas)
+        BenefitCard("Title", "Description", 20, 120).add_to(canvas)
+        rendered = canvas.render()
+        self.assertEqual(rendered.getpixel((30, 30))[:3], (32, 32, 32))
+        self.assertEqual(rendered.getpixel((25, 160))[:3], (255, 225, 0))
