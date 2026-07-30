@@ -13,7 +13,8 @@ python main.py
 python -m unittest discover -s tests -v
 ```
 
-O comando principal cria `output/entrega_1c_componentes.png`.
+O comando principal cria `output/01_principal_mercadolivre.png` com a bola e a
+bomba em fundo branco, sem textos ou elementos promocionais.
 
 ## Estrutura da entrega
 
@@ -21,4 +22,5 @@ O comando principal cria `output/entrega_1c_componentes.png`.
 - `src/mag/graphics`: canvas e renderizador.
 - `src/mag/elements`: retângulos, texto e imagens.
 - `src/mag/components`: badge, cards de beneficio e produto em destaque.
+- `src/mag/layouts`: layouts especificos para cada imagem do anuncio.
 - `tests`: validação da renderização e exportação.
