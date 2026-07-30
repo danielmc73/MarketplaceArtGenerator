@@ -5,7 +5,7 @@ from pathlib import Path
 from PIL import Image
 
 from mag.core.settings import Settings
-from .layer import Layer
+from .element import Element
 
 
 class Canvas:
@@ -23,7 +23,7 @@ class Canvas:
             self.settings.background,
         )
 
-        self.layers: list[Layer] = []
+        self.elements: list[Element] = []
 
     @property
     def width(self):
@@ -35,11 +35,21 @@ class Canvas:
 
         return self.image.height
 
-    def add_layer(self, layer: Layer):
+    def add(self, element):
 
-        self.layers.append(layer)
+        self.elements.append(element)
+
+    def render(self):
+
+        for element in self.elements:
+
+            if element.visible:
+
+                element.draw(self.image)
 
     def save(self, path: str | Path):
+
+        self.render()
 
         Path(path).parent.mkdir(parents=True, exist_ok=True)
 
