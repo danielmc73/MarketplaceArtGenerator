@@ -1,4 +1,9 @@
+from pathlib import Path
+
 from rich.console import Console
+from rich.panel import Panel
+
+from mag.graphics import Canvas
 
 console = Console()
 
@@ -7,19 +12,30 @@ def main():
 
     console.print()
 
-    console.rule("[bold blue]Marketplace Art Generator[/]")
+    console.print(
+        Panel.fit(
+            "[bold cyan]MarketplaceArtGenerator[/]\n"
+            "Entrega 1B\n"
+            "Canvas Engine",
+            title="MAG",
+        )
+    )
 
-    console.print("[green]Projeto iniciado com sucesso.[/]")
+    canvas = Canvas()
+
+    output = Path("output")
+
+    output.mkdir(exist_ok=True)
+
+    canvas.save(output / "canvas_1200.png")
 
     console.print()
 
-    console.print("Versão: 0.1.0")
+    console.print("[green]✓ Canvas criado[/]")
 
-    console.print("Entrega: 1A")
+    console.print("[cyan]output/canvas_1200.png[/]")
 
     console.print()
-
-    console.rule()
 
 
 if __name__ == "__main__":

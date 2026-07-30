@@ -1,13 +1,10 @@
 from pathlib import Path
-import sys
 
 from rich.console import Console
 from rich.panel import Panel
 
-if __package__ in {None, ""}:
-    sys.path.append(str(Path(__file__).resolve().parents[1]))
-
-from version import __version__
+from mag import __version__
+from mag.graphics import Canvas
 
 console = Console()
 
@@ -17,14 +14,20 @@ def main() -> None:
 
     console.print(
         Panel.fit(
-            f"[bold cyan]Marketplace Art Generator[/]\n\n"
-            f"Versão: [green]{__version__}[/green]\n"
-            "Status: Projeto iniciado com sucesso.",
+            f"Marketplace Art Generator\n\nVersão {__version__}",
             title="MAG",
-            border_style="blue",
         )
     )
 
+    output = Path("output")
+    output.mkdir(exist_ok=True)
+
+    canvas = Canvas()
+    canvas.save(output / "canvas.png")
+
+    console.print()
+    console.print("[green]Canvas criado com sucesso![/]")
+    console.print("[cyan]Arquivo:[/] output/canvas.png")
     console.print()
 
 

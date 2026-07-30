@@ -1,4 +1,3 @@
-from .config import Settings
 from .constants import (
     ASSETS_DIR,
     CANVAS_HEIGHT,
@@ -11,10 +10,9 @@ from .constants import (
     PROJECT_ROOT,
     WHITE,
 )
-from .version import __version__
+from .settings import Settings
 
 __all__ = [
-    "__version__",
     "Settings",
     "ASSETS_DIR",
     "OUTPUT_DIR",
