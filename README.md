@@ -13,8 +13,10 @@ python main.py
 python -m unittest discover -s tests -v
 ```
 
-O comando principal cria `output/01_principal_mercadolivre.png` com a bola e a
-bomba em fundo branco, sem textos ou elementos promocionais.
+O comando principal cria duas artes:
+
+- `output/01_principal_mercadolivre.png`: foto principal, sem textos.
+- `output/02_beneficios_mercadolivre.png`: benefícios do kit.
 
 ## Estrutura da entrega
 

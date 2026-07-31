@@ -9,7 +9,7 @@ if str(SOURCE_DIR) not in sys.path:
     sys.path.insert(0, str(SOURCE_DIR))
 
 from mag import __version__
-from mag.layouts import build_principal_image
+from mag.layouts import build_benefits_image, build_principal_image
 
 
 def _product_images() -> tuple[Path, Path]:
@@ -28,11 +28,15 @@ def _product_images() -> tuple[Path, Path]:
 def main() -> None:
     """Generate the text-free primary image for the current kit."""
     ball, pump = _product_images()
-    destination = PROJECT_ROOT / "output" / "01_principal_mercadolivre.png"
-    build_principal_image(ball, pump).save(destination)
+    output_dir = PROJECT_ROOT / "output"
+    principal_destination = output_dir / "01_principal_mercadolivre.png"
+    benefits_destination = output_dir / "02_beneficios_mercadolivre.png"
+    build_principal_image(ball, pump).save(principal_destination)
+    build_benefits_image(ball, pump).save(benefits_destination)
     print("Marketplace Art Generator")
     print(f"Entrega 1D | versao {__version__}")
-    print(f"Imagem principal criada: {destination.relative_to(PROJECT_ROOT)}")
+    print(f"Imagem principal criada: {principal_destination.relative_to(PROJECT_ROOT)}")
+    print(f"Imagem de beneficios criada: {benefits_destination.relative_to(PROJECT_ROOT)}")
 
 
 if __name__ == "__main__":
