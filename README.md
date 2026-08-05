@@ -17,6 +17,7 @@ O comando principal cria duas artes:
 
 - `output/01_principal_mercadolivre.png`: foto principal, sem textos.
 - `output/02_kit_campeao.png`: capa premium esportiva do kit.
+- `output/03_qualidade_especificacoes.png`: qualidade e especificacoes tecnicas.
 
 ## Estrutura da entrega
 
