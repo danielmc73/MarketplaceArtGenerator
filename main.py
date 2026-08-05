@@ -9,7 +9,7 @@ if str(SOURCE_DIR) not in sys.path:
     sys.path.insert(0, str(SOURCE_DIR))
 
 from mag import __version__
-from mag.layouts import build_benefits_image, build_principal_image
+from mag.layouts import build_kit_campeao_image, build_principal_image
 
 
 def _product_images() -> tuple[Path, Path]:
@@ -30,13 +30,13 @@ def main() -> None:
     ball, pump = _product_images()
     output_dir = PROJECT_ROOT / "output"
     principal_destination = output_dir / "01_principal_mercadolivre.png"
-    benefits_destination = output_dir / "02_beneficios_mercadolivre.png"
+    kit_campeao_destination = output_dir / "02_kit_campeao.png"
     build_principal_image(ball, pump).save(principal_destination)
-    build_benefits_image(ball, pump).save(benefits_destination)
+    build_kit_campeao_image(ball, pump).save(kit_campeao_destination)
     print("Marketplace Art Generator")
     print(f"Entrega 1D | versao {__version__}")
     print(f"Imagem principal criada: {principal_destination.relative_to(PROJECT_ROOT)}")
-    print(f"Imagem de beneficios criada: {benefits_destination.relative_to(PROJECT_ROOT)}")
+    print(f"Arte Kit Campeão criada: {kit_campeao_destination.relative_to(PROJECT_ROOT)}")
 
 
 if __name__ == "__main__":

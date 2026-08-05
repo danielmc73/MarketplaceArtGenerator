@@ -16,7 +16,7 @@ python -m unittest discover -s tests -v
 O comando principal cria duas artes:
 
 - `output/01_principal_mercadolivre.png`: foto principal, sem textos.
-- `output/02_beneficios_mercadolivre.png`: benefícios do kit.
+- `output/02_kit_campeao.png`: capa premium esportiva do kit.
 
 ## Estrutura da entrega
 
