@@ -20,6 +20,7 @@ O comando principal cria duas artes:
 - `output/03_qualidade_especificacoes.png`: qualidade e especificacoes tecnicas.
 - `output/04_duvidas_respondidas.png`: perguntas frequentes do kit.
 - `output/05_bomba_manual_premium.png`: beneficios e medidas da bomba.
+- `output/06_versatilidade.png`: aplicacoes compativeis da bomba.
 
 ## Estrutura da entrega
 

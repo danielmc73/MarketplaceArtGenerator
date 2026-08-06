@@ -15,6 +15,7 @@ from mag.layouts import (
     build_pump_image,
     build_quality_image,
     build_questions_image,
+    build_versatility_image,
 )
 
 
@@ -30,7 +31,7 @@ def _product_images() -> tuple[Path, Path]:
 
 
 def main() -> None:
-    """Generate the first five marketplace images for the current kit."""
+    """Generate the first six marketplace images for the current kit."""
     ball, pump = _product_images()
     output_dir = PROJECT_ROOT / "output"
     artifacts = (
@@ -39,6 +40,7 @@ def main() -> None:
         ("Arte de qualidade", output_dir / "03_qualidade_especificacoes.png", build_quality_image),
         ("Arte de duvidas", output_dir / "04_duvidas_respondidas.png", build_questions_image),
         ("Arte da bomba", output_dir / "05_bomba_manual_premium.png", build_pump_image),
+        ("Arte de versatilidade", output_dir / "06_versatilidade.png", build_versatility_image),
     )
     print(f"Marketplace Art Generator | versao {__version__}")
     for label, destination, builder in artifacts:
