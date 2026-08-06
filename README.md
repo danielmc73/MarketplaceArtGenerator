@@ -19,6 +19,7 @@ O comando principal cria duas artes:
 - `output/02_kit_campeao.png`: capa premium esportiva do kit.
 - `output/03_qualidade_especificacoes.png`: qualidade e especificacoes tecnicas.
 - `output/04_duvidas_respondidas.png`: perguntas frequentes do kit.
+- `output/05_bomba_manual_premium.png`: beneficios e medidas da bomba.
 
 ## Estrutura da entrega
 

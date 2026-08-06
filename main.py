@@ -12,6 +12,7 @@ from mag import __version__
 from mag.layouts import (
     build_kit_campeao_image,
     build_principal_image,
+    build_pump_image,
     build_quality_image,
     build_questions_image,
 )
@@ -29,7 +30,7 @@ def _product_images() -> tuple[Path, Path]:
 
 
 def main() -> None:
-    """Generate the first four marketplace images for the current kit."""
+    """Generate the first five marketplace images for the current kit."""
     ball, pump = _product_images()
     output_dir = PROJECT_ROOT / "output"
     artifacts = (
@@ -37,6 +38,7 @@ def main() -> None:
         ("Arte Kit Campeao", output_dir / "02_kit_campeao.png", build_kit_campeao_image),
         ("Arte de qualidade", output_dir / "03_qualidade_especificacoes.png", build_quality_image),
         ("Arte de duvidas", output_dir / "04_duvidas_respondidas.png", build_questions_image),
+        ("Arte da bomba", output_dir / "05_bomba_manual_premium.png", build_pump_image),
     )
     print(f"Marketplace Art Generator | versao {__version__}")
     for label, destination, builder in artifacts:

@@ -13,7 +13,7 @@ from PIL import Image
 from mag.elements import Rectangle
 from mag.graphics import Canvas
 from mag.components import Badge, BenefitCard
-from mag.layouts import build_benefits_image, build_kit_campeao_image, build_principal_image, build_quality_image, build_questions_image
+from mag.layouts import build_benefits_image, build_kit_campeao_image, build_principal_image, build_pump_image, build_quality_image, build_questions_image
 
 
 class CanvasTests(unittest.TestCase):
@@ -63,4 +63,10 @@ class CanvasTests(unittest.TestCase):
         product_dir = Path(__file__).resolve().parents[1] / "assets" / "products" / "kit_bola"
         images = sorted(product_dir.iterdir())
         canvas = build_questions_image(images[1], images[0])
+        self.assertEqual(canvas.render().size, (1200, 1200))
+
+    def test_pump_layout_is_square(self) -> None:
+        product_dir = Path(__file__).resolve().parents[1] / "assets" / "products" / "kit_bola"
+        images = sorted(product_dir.iterdir())
+        canvas = build_pump_image(images[1], images[0])
         self.assertEqual(canvas.render().size, (1200, 1200))
