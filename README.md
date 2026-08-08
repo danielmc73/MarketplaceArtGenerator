@@ -21,6 +21,7 @@ O comando principal cria duas artes:
 - `output/04_duvidas_respondidas.png`: perguntas frequentes do kit.
 - `output/05_bomba_manual_premium.png`: beneficios e medidas da bomba.
 - `output/06_versatilidade.png`: aplicacoes compativeis da bomba.
+- `output/07_presente_perfeito.png`: chamada final para presente.
 
 ## Estrutura da entrega
 

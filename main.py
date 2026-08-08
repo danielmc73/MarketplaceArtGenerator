@@ -10,6 +10,7 @@ if str(SOURCE_DIR) not in sys.path:
 
 from mag import __version__
 from mag.layouts import (
+    build_gift_image,
     build_kit_campeao_image,
     build_principal_image,
     build_pump_image,
@@ -31,7 +32,7 @@ def _product_images() -> tuple[Path, Path]:
 
 
 def main() -> None:
-    """Generate the first six marketplace images for the current kit."""
+    """Generate all seven marketplace images for the current kit."""
     ball, pump = _product_images()
     output_dir = PROJECT_ROOT / "output"
     artifacts = (
@@ -41,6 +42,7 @@ def main() -> None:
         ("Arte de duvidas", output_dir / "04_duvidas_respondidas.png", build_questions_image),
         ("Arte da bomba", output_dir / "05_bomba_manual_premium.png", build_pump_image),
         ("Arte de versatilidade", output_dir / "06_versatilidade.png", build_versatility_image),
+        ("Arte presente perfeito", output_dir / "07_presente_perfeito.png", build_gift_image),
     )
     print(f"Marketplace Art Generator | versao {__version__}")
     for label, destination, builder in artifacts:
