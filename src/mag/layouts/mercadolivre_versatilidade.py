@@ -3,9 +3,13 @@
 from pathlib import Path
 
 from mag.components import HeroProduct
-from mag.elements import Ellipse, StadiumBackground, TextElement
+from mag.elements import Ellipse, ImageElement, TextElement
 from mag.graphics import Canvas
 from mag.themes import SPORTS_PREMIUM
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+VERSATILITY_BACKGROUND = PROJECT_ROOT / "assets" / "backgrounds" / "versatility_field_v1.png"
 
 
 def _activity(canvas: Canvas, code: str, label: str, x: int, y: int, color: tuple[int, int, int]) -> None:
@@ -38,7 +42,7 @@ def _activity(canvas: Canvas, code: str, label: str, x: int, y: int, color: tupl
 def build_versatility_image(_: str | Path, pump_path: str | Path) -> Canvas:
     """Build the image presenting the pump's compatible applications."""
     canvas = Canvas()
-    canvas.add(StadiumBackground(1200, 1200))
+    canvas.add(ImageElement(VERSATILITY_BACKGROUND, 0, 0, width=1200, height=1200, z_index=-100))
     canvas.add(
         TextElement(
             "PARA TODAS AS SUAS",

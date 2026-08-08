@@ -1,6 +1,8 @@
 # Marketplace Art Generator
 
-Gerador de artes para marketplaces. A Entrega 1B fornece uma base gráfica testada: canvas RGBA de 1200 × 1200 px, elementos ordenados por camada e exportação para PNG, JPG ou WebP.
+Gerador de artes para marketplaces. A Entrega 1B fornece uma base grafica
+testada: canvas RGBA de 1200 x 1200 px, elementos ordenados por camada e
+exportacao para PNG, JPG ou WebP.
 
 ## Executar
 
@@ -13,7 +15,7 @@ python main.py
 python -m unittest discover -s tests -v
 ```
 
-O comando principal cria duas artes:
+O comando principal cria sete artes:
 
 - `output/01_principal_mercadolivre.png`: foto principal, sem textos.
 - `output/02_kit_campeao.png`: capa premium esportiva do kit.
@@ -23,15 +25,23 @@ O comando principal cria duas artes:
 - `output/06_versatilidade.png`: aplicacoes compativeis da bomba.
 - `output/07_presente_perfeito.png`: chamada final para presente.
 
-O fundo realista de estádio em `assets/backgrounds/stadium_night_v1.png` é usado
-pela capa esportiva. Os textos continuam sendo renderizados pela aplicação para
-garantir fidelidade e facilidade de edição.
+## Fundos fotograficos
+
+As artes usam fundos originais e realistas em `assets/backgrounds`:
+
+- `stadium_night_v1.png`: capa esportiva;
+- `quality_stage_v1.png`: qualidade e especificacoes;
+- `versatility_field_v1.png`: aplicacoes compativeis;
+- `gift_studio_v1.png`: chamada de presente.
+
+Os textos continuam sendo renderizados pela aplicacao para garantir fidelidade
+e facilidade de edicao.
 
 ## Estrutura da entrega
 
-- `src/mag/core`: configurações do canvas.
+- `src/mag/core`: configuracoes do canvas.
 - `src/mag/graphics`: canvas e renderizador.
-- `src/mag/elements`: retângulos, texto e imagens.
+- `src/mag/elements`: retangulos, texto e imagens.
 - `src/mag/components`: badge, cards de beneficio e produto em destaque.
 - `src/mag/layouts`: layouts especificos para cada imagem do anuncio.
-- `tests`: validação da renderização e exportação.
+- `tests`: validacao da renderizacao e exportacao.

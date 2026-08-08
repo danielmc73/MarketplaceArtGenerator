@@ -3,9 +3,13 @@
 from pathlib import Path
 
 from mag.components import HeroProduct
-from mag.elements import Ellipse, Rectangle, TextElement
+from mag.elements import Ellipse, ImageElement, Rectangle, TextElement
 from mag.graphics import Canvas
 from mag.themes import SPORTS_PREMIUM
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+GIFT_BACKGROUND = PROJECT_ROOT / "assets" / "backgrounds" / "gift_studio_v1.png"
 
 
 def _gift_box(canvas: Canvas) -> None:
@@ -59,7 +63,7 @@ def _benefit(canvas: Canvas, code: str, label: str, x: int) -> None:
 def build_gift_image(ball_path: str | Path, pump_path: str | Path) -> Canvas:
     """Build the seventh image, positioning the kit as a useful gift option."""
     canvas = Canvas()
-    canvas.add(Rectangle(0, 0, 1200, 1200, (247, 247, 244), z_index=-10))
+    canvas.add(ImageElement(GIFT_BACKGROUND, 0, 0, width=1200, height=1200, z_index=-100))
     for x, y in ((55, 58), (315, 36), (1080, 72), (1140, 215), (72, 795), (1115, 785)):
         canvas.add(Rectangle(x, y, 16, 28, SPORTS_PREMIUM["yellow"], radius=3, z_index=4))
     canvas.add(

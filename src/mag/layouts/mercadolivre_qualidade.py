@@ -3,9 +3,13 @@
 from pathlib import Path
 
 from mag.components import HeroProduct
-from mag.elements import Ellipse, Rectangle, StadiumBackground, TextElement
+from mag.elements import Ellipse, ImageElement, Rectangle, TextElement
 from mag.graphics import Canvas
 from mag.themes import SPORTS_PREMIUM
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+QUALITY_BACKGROUND = PROJECT_ROOT / "assets" / "backgrounds" / "quality_stage_v1.png"
 
 
 def _bullet(canvas: Canvas, number: str, title: str, detail: str, y: int) -> None:
@@ -25,7 +29,7 @@ def _metric(canvas: Canvas, value: str, label: str, x: int) -> None:
 def build_quality_image(ball_path: str | Path, pump_path: str | Path) -> Canvas:
     """Build a premium technical-detail image for the ball-and-pump kit."""
     canvas = Canvas()
-    canvas.add(StadiumBackground(1200, 1200))
+    canvas.add(ImageElement(QUALITY_BACKGROUND, 0, 0, width=1200, height=1200, z_index=-100))
     canvas.add(TextElement("QUALIDADE QUE VOC\u00ca SENTE,", 62, 50, size=48, fill=SPORTS_PREMIUM["white"], font_path=SPORTS_PREMIUM["title_font"], z_index=10))
     canvas.add(TextElement("DESEMPENHO QUE VOC\u00ca V\u00ca!", 62, 107, size=46, fill=SPORTS_PREMIUM["yellow"], font_path=SPORTS_PREMIUM["title_font"], z_index=10))
     _bullet(canvas, "5", "TAMANHO OFICIAL", "Padrao ideal para seus jogos.", 230)
