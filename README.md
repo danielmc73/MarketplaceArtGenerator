@@ -37,6 +37,10 @@ As artes usam fundos originais e realistas em `assets/backgrounds`:
 Os textos continuam sendo renderizados pela aplicacao para garantir fidelidade
 e facilidade de edicao.
 
+As fotos fornecidas sao tratadas por perfil do produto: quando uma foto reunir
+variantes de cor, a arte usa uma variante representativa sem ocultar a
+informacao de envio sortido presente no layout.
+
 ## Estrutura da entrega
 
 - `src/mag/core`: configuracoes do canvas.

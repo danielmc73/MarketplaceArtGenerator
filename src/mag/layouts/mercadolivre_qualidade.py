@@ -5,6 +5,7 @@ from pathlib import Path
 from mag.components import HeroProduct
 from mag.elements import Ellipse, ImageElement, Rectangle, TextElement
 from mag.graphics import Canvas
+from mag.products import PRIMARY_PUMP_CROP
 from mag.themes import SPORTS_PREMIUM
 
 
@@ -38,7 +39,15 @@ def build_quality_image(ball_path: str | Path, pump_path: str | Path) -> Canvas:
     _bullet(canvas, "A", "CAMARA DE AR", "Mantem a pressao por mais tempo.", 590)
     _bullet(canvas, "C", "IDEAL PARA CAMPO", "Gramado natural ou sintetico.", 710)
     HeroProduct(ball_path, 592, 212, width=550, crop=(0, 0, 600, 630), clip_ellipse=True, shadow=True).add_to(canvas)
-    HeroProduct(pump_path, 705, 735, width=310, remove_light_background=True, shadow=True).add_to(canvas)
+    HeroProduct(
+        pump_path,
+        825,
+        735,
+        height=220,
+        crop=PRIMARY_PUMP_CROP,
+        remove_light_background=True,
+        shadow=True,
+    ).add_to(canvas)
     canvas.add(Rectangle(0, 970, 1200, 230, (7, 8, 10, 240), z_index=8))
     _metric(canvas, "410-450g", "PESO OFICIAL", 60)
     _metric(canvas, "68-70cm", "CIRCUNFERENCIA", 390)

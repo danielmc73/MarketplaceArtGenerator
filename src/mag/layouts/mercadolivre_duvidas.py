@@ -5,6 +5,7 @@ from pathlib import Path
 from mag.components import HeroProduct
 from mag.elements import Ellipse, Rectangle, TextElement
 from mag.graphics import Canvas
+from mag.products import PRIMARY_PUMP_CROP
 from mag.themes import SPORTS_PREMIUM
 
 
@@ -99,9 +100,10 @@ def build_questions_image(ball_path: str | Path, pump_path: str | Path) -> Canva
     ).add_to(canvas)
     HeroProduct(
         pump_path,
-        815,
+        900,
         670,
-        width=270,
+        height=290,
+        crop=PRIMARY_PUMP_CROP,
         remove_light_background=True,
         shadow=True,
     ).add_to(canvas)

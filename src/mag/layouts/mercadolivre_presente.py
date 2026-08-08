@@ -5,6 +5,7 @@ from pathlib import Path
 from mag.components import HeroProduct
 from mag.elements import Ellipse, ImageElement, Rectangle, TextElement
 from mag.graphics import Canvas
+from mag.products import PRIMARY_PUMP_CROP
 from mag.themes import SPORTS_PREMIUM
 
 
@@ -90,7 +91,15 @@ def build_gift_image(ball_path: str | Path, pump_path: str | Path) -> Canvas:
         )
     )
     HeroProduct(ball_path, 75, 330, width=510, crop=(0, 0, 600, 630), clip_ellipse=True, shadow=True).add_to(canvas)
-    HeroProduct(pump_path, 525, 445, width=230, remove_light_background=True, shadow=True).add_to(canvas)
+    HeroProduct(
+        pump_path,
+        600,
+        455,
+        height=300,
+        crop=PRIMARY_PUMP_CROP,
+        remove_light_background=True,
+        shadow=True,
+    ).add_to(canvas)
     _gift_box(canvas)
     canvas.add(
         TextElement(

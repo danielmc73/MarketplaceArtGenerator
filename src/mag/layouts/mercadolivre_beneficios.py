@@ -5,6 +5,7 @@ from pathlib import Path
 from mag.components import BenefitCard, HeroProduct
 from mag.elements import Rectangle, TextElement
 from mag.graphics import Canvas
+from mag.products import PRIMARY_PUMP_CROP
 
 
 def build_benefits_image(ball_path: str | Path, pump_path: str | Path) -> Canvas:
@@ -18,7 +19,14 @@ def build_benefits_image(ball_path: str | Path, pump_path: str | Path) -> Canvas
         )
     )
     HeroProduct(ball_path, 50, 310, width=510).add_to(canvas)
-    HeroProduct(pump_path, 545, 365, width=210).add_to(canvas)
+    HeroProduct(
+        pump_path,
+        565,
+        365,
+        height=380,
+        crop=PRIMARY_PUMP_CROP,
+        remove_light_background=True,
+    ).add_to(canvas)
     BenefitCard(
         "Bola tamanho n. 5",
         "Tamanho oficial para seus jogos.",

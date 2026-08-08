@@ -5,6 +5,7 @@ from pathlib import Path
 from mag.components import HeroProduct
 from mag.elements import Ellipse, Rectangle, TextElement
 from mag.graphics import Canvas
+from mag.products import PRIMARY_PUMP_CROP
 from mag.themes import SPORTS_PREMIUM
 
 BLUE = (21, 68, 160)
@@ -92,9 +93,10 @@ def build_pump_image(_: str | Path, pump_path: str | Path) -> Canvas:
     _benefit(canvas, "CORES SORTIDAS", "Envio conforme disponibilidade.", 705)
     HeroProduct(
         pump_path,
-        72,
+        160,
         250,
-        width=425,
+        height=770,
+        crop=PRIMARY_PUMP_CROP,
         remove_light_background=True,
         shadow=True,
     ).add_to(canvas)

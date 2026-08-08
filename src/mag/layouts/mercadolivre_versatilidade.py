@@ -5,6 +5,7 @@ from pathlib import Path
 from mag.components import HeroProduct
 from mag.elements import Ellipse, ImageElement, TextElement
 from mag.graphics import Canvas
+from mag.products import PRIMARY_PUMP_CROP
 from mag.themes import SPORTS_PREMIUM
 
 
@@ -76,7 +77,15 @@ def build_versatility_image(_: str | Path, pump_path: str | Path) -> Canvas:
             z_index=10,
         )
     )
-    HeroProduct(pump_path, 900, 50, width=205, remove_light_background=True, shadow=True).add_to(canvas)
+    HeroProduct(
+        pump_path,
+        970,
+        50,
+        height=205,
+        crop=PRIMARY_PUMP_CROP,
+        remove_light_background=True,
+        shadow=True,
+    ).add_to(canvas)
     _activity(canvas, "FUT", "FUTEBOL", 100, 335, (31, 117, 50))
     _activity(canvas, "VOL", "VOLEI", 510, 335, (39, 98, 180))
     _activity(canvas, "BAS", "BASQUETE", 920, 335, (189, 87, 38))

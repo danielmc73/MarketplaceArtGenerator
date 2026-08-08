@@ -5,6 +5,7 @@ from pathlib import Path
 from mag.components import HeroProduct
 from mag.elements import Ellipse, ImageElement, Rectangle, TextElement
 from mag.graphics import Canvas
+from mag.products import PRIMARY_PUMP_CROP
 from mag.themes import SPORTS_PREMIUM
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
@@ -93,9 +94,10 @@ def build_kit_campeao_image(ball_path: str | Path, pump_path: str | Path) -> Can
     )
     HeroProduct(
         pump_path,
-        83,
-        470,
-        width=270,
+        145,
+        460,
+        height=575,
+        crop=PRIMARY_PUMP_CROP,
         remove_light_background=True,
         shadow=True,
     ).add_to(canvas)

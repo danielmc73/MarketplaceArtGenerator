@@ -1,3 +1,3 @@
 """Version metadata for Marketplace Art Generator."""
 
-__version__ = "0.3.2"
+__version__ = "0.3.3"
