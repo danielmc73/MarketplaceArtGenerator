@@ -23,6 +23,10 @@ O comando principal cria duas artes:
 - `output/06_versatilidade.png`: aplicacoes compativeis da bomba.
 - `output/07_presente_perfeito.png`: chamada final para presente.
 
+O fundo realista de estádio em `assets/backgrounds/stadium_night_v1.png` é usado
+pela capa esportiva. Os textos continuam sendo renderizados pela aplicação para
+garantir fidelidade e facilidade de edição.
+
 ## Estrutura da entrega
 
 - `src/mag/core`: configurações do canvas.

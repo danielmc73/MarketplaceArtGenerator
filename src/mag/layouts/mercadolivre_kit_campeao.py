@@ -3,24 +3,17 @@
 from pathlib import Path
 
 from mag.components import HeroProduct
-from mag.elements import Rectangle, StadiumBackground, TextElement
+from mag.elements import Ellipse, ImageElement, Rectangle, TextElement
 from mag.graphics import Canvas
 from mag.themes import SPORTS_PREMIUM
+
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+STADIUM_BACKGROUND = PROJECT_ROOT / "assets" / "backgrounds" / "stadium_night_v1.png"
 
 
 def _feature(canvas: Canvas, label: str, x: int) -> None:
     canvas.add(Rectangle(x, 1050, 236, 100, (8, 8, 10, 215), radius=12, z_index=8))
-    canvas.add(
-        TextElement(
-            "\u2605",
-            x + 94,
-            1055,
-            size=34,
-            fill=SPORTS_PREMIUM["yellow"],
-            font_path=SPORTS_PREMIUM["body_font"],
-            z_index=9,
-        )
-    )
+    canvas.add(Ellipse(x + 105, 1061, 24, 24, SPORTS_PREMIUM["yellow"], z_index=9))
     canvas.add(
         TextElement(
             label,
@@ -37,7 +30,7 @@ def _feature(canvas: Canvas, label: str, x: int) -> None:
 def build_kit_campeao_image(ball_path: str | Path, pump_path: str | Path) -> Canvas:
     """Build the high-impact campaign cover inspired by the approved reference."""
     canvas = Canvas()
-    canvas.add(StadiumBackground(1200, 1200))
+    canvas.add(ImageElement(STADIUM_BACKGROUND, 0, 0, width=1200, height=1200, z_index=-100))
     canvas.add(
         TextElement(
             "KIT",
