@@ -15,6 +15,16 @@ python main.py
 python -m unittest discover -s tests -v
 ```
 
+Para gerar outro produto, coloque suas fotos e um `config.json` em uma pasta e
+informe o caminho:
+
+```cmd
+python main.py --product-dir assets\products\kit_bola --output-dir output
+```
+
+O manifesto define explicitamente quais arquivos sao a bola e a bomba, evitando
+que a aplicacao escolha uma imagem errada por ordem de nome.
+
 O comando principal cria sete artes:
 
 - `output/01_principal_mercadolivre.png`: foto principal, sem textos.

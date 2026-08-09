@@ -1,0 +1,12 @@
+{
+  "name": "Kit Bola de Futebol + Bomba de Ar",
+  "marketplace": "mercadolivre",
+  "images": {
+    "ball": "D_NQ_NP_2X_737069-MLB96567187944_112025-F-bola-futebol-campo-capoto-tamanho-f5-infantil-premium-600x727.webp",
+    "pump": "723dd54ebcb5a86e1b61ace700583f24.webp"
+  },
+  "pump": {
+    "colour_policy": "sortida",
+    "representative_colour": "azul"
+  }
+}
