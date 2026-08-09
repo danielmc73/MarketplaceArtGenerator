@@ -5,7 +5,6 @@ from pathlib import Path
 from mag.components import HeroProduct
 from mag.elements import Ellipse, ImageElement, TextElement
 from mag.graphics import Canvas
-from mag.products import PRIMARY_PUMP_CROP
 from mag.themes import SPORTS_PREMIUM
 
 
@@ -40,7 +39,12 @@ def _activity(canvas: Canvas, code: str, label: str, x: int, y: int, color: tupl
     )
 
 
-def build_versatility_image(_: str | Path, pump_path: str | Path) -> Canvas:
+def build_versatility_image(
+    _: str | Path,
+    pump_path: str | Path,
+    *,
+    pump_crop: tuple[int, int, int, int] | None = None,
+) -> Canvas:
     """Build the image presenting the pump's compatible applications."""
     canvas = Canvas()
     canvas.add(ImageElement(VERSATILITY_BACKGROUND, 0, 0, width=1200, height=1200, z_index=-100))
@@ -82,7 +86,7 @@ def build_versatility_image(_: str | Path, pump_path: str | Path) -> Canvas:
         970,
         50,
         height=205,
-        crop=PRIMARY_PUMP_CROP,
+        crop=pump_crop,
         remove_light_background=True,
         shadow=True,
     ).add_to(canvas)

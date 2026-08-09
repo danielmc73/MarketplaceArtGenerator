@@ -5,7 +5,6 @@ from pathlib import Path
 from mag.components import HeroProduct
 from mag.elements import Ellipse, Rectangle, TextElement
 from mag.graphics import Canvas
-from mag.products import PRIMARY_PUMP_CROP
 from mag.themes import SPORTS_PREMIUM
 
 
@@ -46,7 +45,12 @@ def _faq(canvas: Canvas, question: str, answer: str, y: int) -> None:
     )
 
 
-def build_questions_image(ball_path: str | Path, pump_path: str | Path) -> Canvas:
+def build_questions_image(
+    ball_path: str | Path,
+    pump_path: str | Path,
+    *,
+    pump_crop: tuple[int, int, int, int] | None = None,
+) -> Canvas:
     """Build the customer-objection answer image for the product listing."""
     canvas = Canvas()
     canvas.add(Rectangle(0, 0, 1200, 1200, (248, 248, 246), z_index=-10))
@@ -103,7 +107,7 @@ def build_questions_image(ball_path: str | Path, pump_path: str | Path) -> Canva
         900,
         670,
         height=290,
-        crop=PRIMARY_PUMP_CROP,
+        crop=pump_crop,
         remove_light_background=True,
         shadow=True,
     ).add_to(canvas)

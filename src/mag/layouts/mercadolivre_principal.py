@@ -5,10 +5,14 @@ from pathlib import Path
 from mag.elements import Ellipse
 from mag.graphics import Canvas
 from mag.components import HeroProduct
-from mag.products import PRIMARY_PUMP_CROP
 
 
-def build_principal_image(ball_path: str | Path, pump_path: str | Path) -> Canvas:
+def build_principal_image(
+    ball_path: str | Path,
+    pump_path: str | Path,
+    *,
+    pump_crop: tuple[int, int, int, int] | None = None,
+) -> Canvas:
     """Build a 1200 px square primary image for the ball-and-pump kit.
 
     The layout intentionally contains no text, badges, borders, or promotional
@@ -23,7 +27,7 @@ def build_principal_image(ball_path: str | Path, pump_path: str | Path) -> Canva
         840,
         260,
         height=620,
-        crop=PRIMARY_PUMP_CROP,
+        crop=pump_crop,
         remove_light_background=True,
     ).add_to(canvas)
     return canvas

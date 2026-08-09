@@ -6,6 +6,8 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
+CropBox = tuple[int, int, int, int]
+
 
 @dataclass(frozen=True, slots=True)
 class ProductAssets:
@@ -15,6 +17,21 @@ class ProductAssets:
     marketplace: str
     ball: Path
     pump: Path
+    pump_crop: CropBox | None = None
+
+
+def _crop_box(value: object, manifest_path: Path) -> CropBox | None:
+    """Validate an optional source-image crop rectangle."""
+    if value is None:
+        return None
+    if not isinstance(value, list) or len(value) != 4 or not all(
+        isinstance(coordinate, int) for coordinate in value
+    ):
+        raise ValueError(f"Invalid pump.primary_crop in product manifest: {manifest_path}")
+    left, top, right, bottom = value
+    if left < 0 or top < 0 or right <= left or bottom <= top:
+        raise ValueError(f"Invalid pump.primary_crop bounds in product manifest: {manifest_path}")
+    return left, top, right, bottom
 
 
 def load_product_assets(product_dir: str | Path) -> ProductAssets:
@@ -34,6 +51,7 @@ def load_product_assets(product_dir: str | Path) -> ProductAssets:
         images = manifest["images"]
         ball = directory / images["ball"]
         pump = directory / images["pump"]
+        pump_crop = _crop_box(manifest.get("pump", {}).get("primary_crop"), manifest_path)
     except (json.JSONDecodeError, KeyError, TypeError) as error:
         raise ValueError(f"Invalid product manifest: {manifest_path}") from error
 
@@ -47,4 +65,5 @@ def load_product_assets(product_dir: str | Path) -> ProductAssets:
         marketplace=str(manifest.get("marketplace", "mercadolivre")),
         ball=ball,
         pump=pump,
+        pump_crop=pump_crop,
     )

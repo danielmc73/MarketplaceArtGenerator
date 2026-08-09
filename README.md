@@ -23,7 +23,8 @@ python main.py --product-dir assets\products\kit_bola --output-dir output
 ```
 
 O manifesto define explicitamente quais arquivos sao a bola e a bomba, evitando
-que a aplicacao escolha uma imagem errada por ordem de nome.
+que a aplicacao escolha uma imagem errada por ordem de nome. Ele tambem pode
+definir `pump.primary_crop` quando uma unica foto reunir variantes de cor.
 
 O comando principal cria sete artes:
 

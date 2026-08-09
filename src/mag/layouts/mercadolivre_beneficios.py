@@ -5,10 +5,14 @@ from pathlib import Path
 from mag.components import BenefitCard, HeroProduct
 from mag.elements import Rectangle, TextElement
 from mag.graphics import Canvas
-from mag.products import PRIMARY_PUMP_CROP
 
 
-def build_benefits_image(ball_path: str | Path, pump_path: str | Path) -> Canvas:
+def build_benefits_image(
+    ball_path: str | Path,
+    pump_path: str | Path,
+    *,
+    pump_crop: tuple[int, int, int, int] | None = None,
+) -> Canvas:
     """Build the second kit image with concise, customer-facing benefits."""
     canvas = Canvas()
     canvas.add(Rectangle(0, 0, 1200, 270, (255, 225, 0)))
@@ -24,7 +28,7 @@ def build_benefits_image(ball_path: str | Path, pump_path: str | Path) -> Canvas
         565,
         365,
         height=380,
-        crop=PRIMARY_PUMP_CROP,
+        crop=pump_crop,
         remove_light_background=True,
     ).add_to(canvas)
     BenefitCard(

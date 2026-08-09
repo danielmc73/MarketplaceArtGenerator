@@ -5,7 +5,6 @@ from pathlib import Path
 from mag.components import HeroProduct
 from mag.elements import Ellipse, Rectangle, TextElement
 from mag.graphics import Canvas
-from mag.products import PRIMARY_PUMP_CROP
 from mag.themes import SPORTS_PREMIUM
 
 BLUE = (21, 68, 160)
@@ -48,7 +47,12 @@ def _benefit(canvas: Canvas, title: str, detail: str, y: int) -> None:
     )
 
 
-def build_pump_image(_: str | Path, pump_path: str | Path) -> Canvas:
+def build_pump_image(
+    _: str | Path,
+    pump_path: str | Path,
+    *,
+    pump_crop: tuple[int, int, int, int] | None = None,
+) -> Canvas:
     """Build a feature-driven image focused on the manual pump."""
     canvas = Canvas()
     canvas.add(Rectangle(0, 0, 1200, 1200, (247, 247, 245), z_index=-10))
@@ -96,7 +100,7 @@ def build_pump_image(_: str | Path, pump_path: str | Path) -> Canvas:
         160,
         250,
         height=770,
-        crop=PRIMARY_PUMP_CROP,
+        crop=pump_crop,
         remove_light_background=True,
         shadow=True,
     ).add_to(canvas)
