@@ -1,6 +1,7 @@
 """Frequently asked questions layout for the kit."""
 
 from pathlib import Path
+from collections.abc import Mapping
 
 from mag.components import HeroProduct
 from mag.elements import Ellipse, Rectangle, TextElement
@@ -50,6 +51,7 @@ def build_questions_image(
     pump_path: str | Path,
     *,
     pump_crop: tuple[int, int, int, int] | None = None,
+    copy: Mapping[str, str] | None = None,
 ) -> Canvas:
     """Build the customer-objection answer image for the product listing."""
     canvas = Canvas()

@@ -9,5 +9,16 @@
     "colour_policy": "sortida",
     "representative_colour": "azul",
     "primary_crop": [30, 34, 158, 575]
+  },
+  "copy": {
+    "cover_eyebrow": "KIT",
+    "cover_title": "CAMPEÃO",
+    "cover_product": "BOLA + BOMBA DE AR",
+    "cover_line_one": "TUDO O QUE VOCÊ PRECISA",
+    "cover_line_two": "PARA O JOGO!",
+    "pump_title": "BOMBA DE AR",
+    "pump_subtitle": "MANUAL PREMIUM",
+    "pump_headline": "PEQUENA NO TAMANHO, GIGANTE NA PRATICIDADE!",
+    "pump_contents": "1 BOMBA + 1 BICO AGULHA INCLUSO"
   }
 }

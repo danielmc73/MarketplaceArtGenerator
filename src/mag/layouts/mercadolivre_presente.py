@@ -1,6 +1,7 @@
 """Gift-oriented final call-to-action layout."""
 
 from pathlib import Path
+from collections.abc import Mapping
 
 from mag.components import HeroProduct
 from mag.elements import Ellipse, ImageElement, Rectangle, TextElement
@@ -65,6 +66,7 @@ def build_gift_image(
     pump_path: str | Path,
     *,
     pump_crop: tuple[int, int, int, int] | None = None,
+    copy: Mapping[str, str] | None = None,
 ) -> Canvas:
     """Build the seventh image, positioning the kit as a useful gift option."""
     canvas = Canvas()

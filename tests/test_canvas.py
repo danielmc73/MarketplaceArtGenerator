@@ -29,6 +29,7 @@ class CanvasTests(unittest.TestCase):
         product = load_product_assets(product_dir)
         self.assertEqual(product.name, "Kit Bola de Futebol + Bomba de Ar")
         self.assertEqual(product.pump_crop, (30, 34, 158, 575))
+        self.assertEqual(product.copy["cover_title"], "CAMPEÃO")
         self.assertTrue(product.ball.is_file())
         self.assertTrue(product.pump.is_file())
 

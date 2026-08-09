@@ -1,6 +1,7 @@
 """Text-free main image layout for a Mercado Livre listing."""
 
 from pathlib import Path
+from collections.abc import Mapping
 
 from mag.elements import Ellipse
 from mag.graphics import Canvas
@@ -12,6 +13,7 @@ def build_principal_image(
     pump_path: str | Path,
     *,
     pump_crop: tuple[int, int, int, int] | None = None,
+    copy: Mapping[str, str] | None = None,
 ) -> Canvas:
     """Build a 1200 px square primary image for the ball-and-pump kit.
 

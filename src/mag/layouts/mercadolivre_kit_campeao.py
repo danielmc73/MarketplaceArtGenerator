@@ -1,6 +1,7 @@
 """Premium sports cover for the ball-and-pump kit."""
 
 from pathlib import Path
+from collections.abc import Mapping
 
 from mag.components import HeroProduct
 from mag.elements import Ellipse, ImageElement, Rectangle, TextElement
@@ -32,13 +33,15 @@ def build_kit_campeao_image(
     pump_path: str | Path,
     *,
     pump_crop: tuple[int, int, int, int] | None = None,
+    copy: Mapping[str, str] | None = None,
 ) -> Canvas:
     """Build the high-impact campaign cover inspired by the approved reference."""
     canvas = Canvas()
+    copy_text = copy or {}
     canvas.add(ImageElement(STADIUM_BACKGROUND, 0, 0, width=1200, height=1200, z_index=-100))
     canvas.add(
         TextElement(
-            "KIT",
+            copy_text.get("cover_eyebrow", "KIT"),
             64,
             35,
             size=88,
@@ -51,7 +54,7 @@ def build_kit_campeao_image(
     )
     canvas.add(
         TextElement(
-            "CAMPE\u00c3O",
+            copy_text.get("cover_title", "CAMPE\u00c3O"),
             62,
             120,
             size=122,
@@ -65,7 +68,7 @@ def build_kit_campeao_image(
     canvas.add(Rectangle(70, 275, 555, 76, SPORTS_PREMIUM["red"], radius=10, z_index=10))
     canvas.add(
         TextElement(
-            "BOLA + BOMBA DE AR",
+            copy_text.get("cover_product", "BOLA + BOMBA DE AR"),
             93,
             291,
             size=37,
@@ -76,7 +79,7 @@ def build_kit_campeao_image(
     )
     canvas.add(
         TextElement(
-            "TUDO O QUE VOC\u00ca PRECISA",
+            copy_text.get("cover_line_one", "TUDO O QUE VOC\u00ca PRECISA"),
             74,
             376,
             size=30,
@@ -87,7 +90,7 @@ def build_kit_campeao_image(
     )
     canvas.add(
         TextElement(
-            "PARA O JOGO!",
+            copy_text.get("cover_line_two", "PARA O JOGO!"),
             74,
             419,
             size=36,

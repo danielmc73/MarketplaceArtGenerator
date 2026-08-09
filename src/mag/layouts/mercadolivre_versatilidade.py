@@ -1,6 +1,7 @@
 """Versatility layout for the included manual pump."""
 
 from pathlib import Path
+from collections.abc import Mapping
 
 from mag.components import HeroProduct
 from mag.elements import Ellipse, ImageElement, TextElement
@@ -44,6 +45,7 @@ def build_versatility_image(
     pump_path: str | Path,
     *,
     pump_crop: tuple[int, int, int, int] | None = None,
+    copy: Mapping[str, str] | None = None,
 ) -> Canvas:
     """Build the image presenting the pump's compatible applications."""
     canvas = Canvas()

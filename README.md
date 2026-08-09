@@ -26,6 +26,9 @@ O manifesto define explicitamente quais arquivos sao a bola e a bomba, evitando
 que a aplicacao escolha uma imagem errada por ordem de nome. Ele tambem pode
 definir `pump.primary_crop` quando uma unica foto reunir variantes de cor.
 
+As chamadas principais da capa e da arte da bomba ficam na secao `copy` do
+mesmo manifesto. Isso permite ajustar textos comerciais sem editar Python.
+
 O comando principal cria sete artes:
 
 - `output/01_principal_mercadolivre.png`: foto principal, sem textos.

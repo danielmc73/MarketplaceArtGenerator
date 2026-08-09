@@ -1,6 +1,7 @@
 """Dedicated pump feature image for the kit."""
 
 from pathlib import Path
+from collections.abc import Mapping
 
 from mag.components import HeroProduct
 from mag.elements import Ellipse, Rectangle, TextElement
@@ -52,13 +53,15 @@ def build_pump_image(
     pump_path: str | Path,
     *,
     pump_crop: tuple[int, int, int, int] | None = None,
+    copy: Mapping[str, str] | None = None,
 ) -> Canvas:
     """Build a feature-driven image focused on the manual pump."""
     canvas = Canvas()
+    copy_text = copy or {}
     canvas.add(Rectangle(0, 0, 1200, 1200, (247, 247, 245), z_index=-10))
     canvas.add(
         TextElement(
-            "BOMBA DE AR",
+            copy_text.get("pump_title", "BOMBA DE AR"),
             60,
             48,
             size=56,
@@ -69,7 +72,7 @@ def build_pump_image(
     )
     canvas.add(
         TextElement(
-            "MANUAL PREMIUM",
+            copy_text.get("pump_subtitle", "MANUAL PREMIUM"),
             60,
             112,
             size=48,
@@ -80,7 +83,7 @@ def build_pump_image(
     )
     canvas.add(
         TextElement(
-            "PEQUENA NO TAMANHO, GIGANTE NA PRATICIDADE!",
+            copy_text.get("pump_headline", "PEQUENA NO TAMANHO, GIGANTE NA PRATICIDADE!"),
             62,
             185,
             size=22,
@@ -121,7 +124,7 @@ def build_pump_image(
     canvas.add(Rectangle(48, 1065, 1104, 82, BLUE, radius=18, z_index=10))
     canvas.add(
         TextElement(
-            "1 BOMBA + 1 BICO AGULHA INCLUSO",
+            copy_text.get("pump_contents", "1 BOMBA + 1 BICO AGULHA INCLUSO"),
             285,
             1088,
             size=27,

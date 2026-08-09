@@ -58,7 +58,7 @@ def main() -> None:
     print(f"Marketplace Art Generator | versao {__version__}")
     print(f"Produto: {product.name}")
     for label, destination, builder in artifacts:
-        builder(ball, pump, pump_crop=product.pump_crop).save(destination)
+        builder(ball, pump, pump_crop=product.pump_crop, copy=product.copy).save(destination)
         print(f"{label} criada: {destination.relative_to(PROJECT_ROOT)}")
 
 

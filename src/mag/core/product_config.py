@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
+from collections.abc import Mapping
+from dataclasses import dataclass, field
 from pathlib import Path
 
 CropBox = tuple[int, int, int, int]
@@ -18,6 +19,7 @@ class ProductAssets:
     ball: Path
     pump: Path
     pump_crop: CropBox | None = None
+    copy: Mapping[str, str] = field(default_factory=dict)
 
 
 def _crop_box(value: object, manifest_path: Path) -> CropBox | None:
@@ -32,6 +34,17 @@ def _crop_box(value: object, manifest_path: Path) -> CropBox | None:
     if left < 0 or top < 0 or right <= left or bottom <= top:
         raise ValueError(f"Invalid pump.primary_crop bounds in product manifest: {manifest_path}")
     return left, top, right, bottom
+
+
+def _copy_values(value: object, manifest_path: Path) -> dict[str, str]:
+    """Validate optional flat copy overrides for product layouts."""
+    if value is None:
+        return {}
+    if not isinstance(value, dict) or not all(
+        isinstance(key, str) and isinstance(text, str) for key, text in value.items()
+    ):
+        raise ValueError(f"Invalid copy section in product manifest: {manifest_path}")
+    return dict(value)
 
 
 def load_product_assets(product_dir: str | Path) -> ProductAssets:
@@ -52,6 +65,7 @@ def load_product_assets(product_dir: str | Path) -> ProductAssets:
         ball = directory / images["ball"]
         pump = directory / images["pump"]
         pump_crop = _crop_box(manifest.get("pump", {}).get("primary_crop"), manifest_path)
+        copy = _copy_values(manifest.get("copy"), manifest_path)
     except (json.JSONDecodeError, KeyError, TypeError) as error:
         raise ValueError(f"Invalid product manifest: {manifest_path}") from error
 
@@ -66,4 +80,5 @@ def load_product_assets(product_dir: str | Path) -> ProductAssets:
         ball=ball,
         pump=pump,
         pump_crop=pump_crop,
+        copy=copy,
     )

@@ -1,6 +1,7 @@
 """Benefit-focused secondary image for a Mercado Livre listing."""
 
 from pathlib import Path
+from collections.abc import Mapping
 
 from mag.components import BenefitCard, HeroProduct
 from mag.elements import Rectangle, TextElement
@@ -12,6 +13,7 @@ def build_benefits_image(
     pump_path: str | Path,
     *,
     pump_crop: tuple[int, int, int, int] | None = None,
+    copy: Mapping[str, str] | None = None,
 ) -> Canvas:
     """Build the second kit image with concise, customer-facing benefits."""
     canvas = Canvas()
